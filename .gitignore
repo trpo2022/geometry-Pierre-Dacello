@@ -2,6 +2,5 @@
 *.swp
 *.out
 *main
-*chessviz
 *.o
 *.a

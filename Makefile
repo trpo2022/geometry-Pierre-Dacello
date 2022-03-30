@@ -14,7 +14,7 @@ obj/src/libgeo/libgeo.a: obj/src/libgeo/check.o
 obj/src/geometry/geometry.o: 
 	$(CC) -o obj/src/geometry/geometry.o $(CFLAGS) $(INCLUDEPATH) $(SOURCE)geometry.c
 obj/src/libgeo/check.o: 
-	$(CC) -o obj/src/libgeo/check.o $(CFLAGS) $(INCLUDEPATH) $(LIBSOURCE)check.c
+	$(CC) -o obj/src/libgeo/check.o $(CFLAGS) $(INCLUDEPATH) -lm $(LIBSOURCE)check.c
 
 test: bin/test 
 bin/test: obj/src/test/main.o obj/src/test/geometry_test.o obj/src/libgeo/libgeo.a

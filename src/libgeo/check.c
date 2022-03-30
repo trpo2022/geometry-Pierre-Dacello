@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void check(float x_krug, float y_krug, float radius, float x1_treugol, float y1_treugol, float x2_treugol, float y2_treugol, float x3_treugol, float y3_treugol)
+int check(float x_krug, float y_krug, float radius, float x1_treugol, float y1_treugol, float x2_treugol, float y2_treugol, float x3_treugol, float y3_treugol)
 {
 	float sqrt_one, sqrt_two, sqrt_three;
 	sqrt_one = sqrt((x_krug - x1_treugol) * (x_krug - x1_treugol) + (y_krug - y1_treugol) * (y_krug - y1_treugol));
@@ -10,9 +10,11 @@ void check(float x_krug, float y_krug, float radius, float x1_treugol, float y1_
 	if (((sqrt_one > radius) && (sqrt_two > radius) && (sqrt_three > radius)) || ((sqrt_one < radius) && (sqrt_two < radius) && (sqrt_three < radius))) 
 	{
         	printf("Ne peresikayutsa\n");
-    	} 
+        	return 0;
+    } 
 	else 
 	{
         	printf("Peresikayutsa\n");
-    	}
+        	return 1;
+    }
 }

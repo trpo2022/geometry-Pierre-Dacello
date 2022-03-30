@@ -6,40 +6,42 @@
 
 CTEST(geometry_suite, simple_overlap)
 {
-    double x0 = 0, y0 = 0, r = 3, x1 = 0, y1 = 0, x2 = 2, y2 = 5, x3 = 5,
-           y3 = 0;
-    float a, b, c;
-    const int exp = 1;
+    float x_krug = 0, y_krug = 0, radius = 3, x1_treugol = 0, y1_treugol = 0, x2_treugol = 2, y2_treugol = 5, x3_treugol = 5, y3_treugol = 0;
+    int exp;
+    exp = check(x_krug, y_krug, radius, x1_treugol, y1_treugol, x2_treugol, y2_treugol, x3_treugol, y3_treugol);
     int res;
-    a = sqrt((x0 - x1) * (x0 - x1) + (y0 - y1) * (y0 - y1));
-    b = sqrt((x0 - x2) * (x0 - x2) + (y0 - y2) * (y0 - y2));
-    c = sqrt((x0 - x3) * (x0 - x3) + (y0 - y3) * (y0 - y3));
-    if (((a > r) && (b > r) && (c > r)) || ((a < r) && (b < r) && (c < r))) {
-        res = 0;
-        printf("Not overlap");
-    } else {
+    float sqrt_one, sqrt_two, sqrt_three;
+	sqrt_one = sqrt((x_krug - x1_treugol) * (x_krug - x1_treugol) + (y_krug - y1_treugol) * (y_krug - y1_treugol));
+	sqrt_two = sqrt((x_krug - x2_treugol) * (x_krug - x2_treugol) + (y_krug - y2_treugol) * (y_krug - y2_treugol));
+	sqrt_three = sqrt((x_krug - x3_treugol) * (x_krug - x3_treugol) + (y_krug - y3_treugol) * (y_krug - y3_treugol));
+	if (((sqrt_one > radius) && (sqrt_two > radius) && (sqrt_three > radius)) || ((sqrt_one < radius) && (sqrt_two < radius) && (sqrt_three < radius))) 
+	{
+		res = 0;
+    } 
+	else 
+	{
         res = 1;
-        printf("Overlap");
     }
     ASSERT_EQUAL(exp, res);
 }
 
 CTEST(geometry_suite, simple_not_overlap)
 {
-    double x0 = -3, y0 = -3, r = 3, x1 = 4, y1 = 0, x2 = 5, y2 = 8, x3 = 6,
-           y3 = 0;
-    float a, b, c;
-    const int exp = 0;
+	float x_krug = -3, y_krug = -3, radius = 3, x1_treugol = 4, y1_treugol = 0, x2_treugol = 5, y2_treugol = 8, x3_treugol = 6, y3_treugol = 0;
+    int exp;
+    exp = check(x_krug, y_krug, radius, x1_treugol, y1_treugol, x2_treugol, y2_treugol, x3_treugol, y3_treugol);
     int res;
-    a = sqrt((x0 - x1) * (x0 - x1) + (y0 - y1) * (y0 - y1));
-    b = sqrt((x0 - x2) * (x0 - x2) + (y0 - y2) * (y0 - y2));
-    c = sqrt((x0 - x3) * (x0 - x3) + (y0 - y3) * (y0 - y3));
-    if (((a > r) && (b > r) && (c > r)) || ((a < r) && (b < r) && (c < r))) {
-        res = 0;
-        printf("Not overlap");
-    } else {
+    float sqrt_one, sqrt_two, sqrt_three;
+	sqrt_one = sqrt((x_krug - x1_treugol) * (x_krug - x1_treugol) + (y_krug - y1_treugol) * (y_krug - y1_treugol));
+	sqrt_two = sqrt((x_krug - x2_treugol) * (x_krug - x2_treugol) + (y_krug - y2_treugol) * (y_krug - y2_treugol));
+	sqrt_three = sqrt((x_krug - x3_treugol) * (x_krug - x3_treugol) + (y_krug - y3_treugol) * (y_krug - y3_treugol));
+	if (((sqrt_one > radius) && (sqrt_two > radius) && (sqrt_three > radius)) || ((sqrt_one < radius) && (sqrt_two < radius) && (sqrt_three < radius))) 
+	{
+		res = 0;
+    } 
+	else 
+	{
         res = 1;
-        printf("Overlap");
     }
     ASSERT_EQUAL(exp, res);
 }

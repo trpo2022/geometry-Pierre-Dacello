@@ -17,8 +17,8 @@ obj/src/libgeo/check.o:
 	$(CC) -o obj/src/libgeo/check.o $(CFLAGS) $(INCLUDEPATH) $(LIBSOURCE)check.c
 
 test: bin/test 
-bin/test: obj/src/test/main.o obj/src/test/geometry_test.o
-	$(CC) -o bin/test obj/src/test/main.o obj/src/test/geometry_test.o 
+bin/test: obj/src/test/main.o obj/src/test/geometry_test.o obj/src/libgeo/libgeo.a
+	$(CC) -o bin/test obj/src/test/main.o obj/src/test/geometry_test.o obj/src/libgeo/libgeo.a
 obj/src/test/main.o: 
 	$(CC) -o obj/src/test/main.o $(CFLAGS) $(INCLUDEPATHHH) -lm test/main.c
 

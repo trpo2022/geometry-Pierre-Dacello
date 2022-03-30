@@ -484,7 +484,7 @@ static void sighandler(int signum)
     /* "Unregister" the signal handler and send the signal back to the process
      * so it can terminate as expected */
     signal(signum, SIG_DFL);
-    kill(getpid(), signum);
+    //kill(getpid(), signum);
 }
 #endif
 

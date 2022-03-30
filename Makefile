@@ -17,13 +17,13 @@ obj/src/libgeo/check.o:
 	$(CC) -o obj/src/libgeo/check.o $(CFLAGS) $(INCLUDEPATH) $(LIBSOURCE)check.c
 
 test: bin/test 
-bin/test: main.o geometry_test.o
-	$(CC) -o bin/test main.o geometry_test.o 
-main.o: 
-	$(CC) -o main.o $(CFLAGS) $(INCLUDEPATHHH) -lm test/main.c
+bin/test: obj/src/test/main.o obj/src/test/geometry_test.o
+	$(CC) -o bin/test obj/src/test/main.o obj/src/test/geometry_test.o 
+obj/src/test/main.o: 
+	$(CC) -o obj/src/test/main.o $(CFLAGS) $(INCLUDEPATHHH) -lm test/main.c
 
-geometry_test.o: 
-	$(CC) -o geometry_test.o $(CFLAGS) $(INCLUDEPATHHH) $(INCLUDEPATH) -lm test/geometry_test.c
+obj/src/test/geometry_test.o: 
+	$(CC) -o obj/src/test/geometry_test.o $(CFLAGS) $(INCLUDEPATHHH) $(INCLUDEPATH) -lm test/geometry_test.c
 
 clean:
 	rm -rf 

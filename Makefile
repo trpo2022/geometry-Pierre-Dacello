@@ -8,7 +8,7 @@ INCLUDEPATHH=-I obj
 INCLUDEPATH=-I src
 all: bin/geometry clean
 bin/geometry: obj/src/geometry/geometry.o obj/src/libgeo/libgeo.a
-	$(CC) -o bin/geometry obj/src/geometry/geometry.o obj/src/libgeo/libgeo.a
+	$(CC) -o bin/geometry obj/src/geometry/geometry.o obj/src/libgeo/libgeo.a -lm
 obj/src/libgeo/libgeo.a: obj/src/libgeo/check.o 
 	ar rcs obj/src/libgeo/libgeo.a obj/src/libgeo/check.o 
 obj/src/geometry/geometry.o: 
